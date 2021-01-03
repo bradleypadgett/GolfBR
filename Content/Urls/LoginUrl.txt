@@ -1,0 +1,1 @@
+https://golfbrgame.auth.us-east-1.amazoncognito.com/login?client_id=6folckguhf0ufutdmu3i958fd2&response_type=code&scope=aws.cognito.signin.user.admin+email+golf.api/access+openid+phone+profile&redirect_uri=https://r82wmb20lf.execute-api.us-east-1.amazonaws.com/test/getsigninresult

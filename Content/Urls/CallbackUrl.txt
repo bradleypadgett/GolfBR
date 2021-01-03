@@ -1,0 +1,1 @@
+https://r82wmb20lf.execute-api.us-east-1.amazonaws.com/test/getsigninresult
