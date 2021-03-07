@@ -1,7 +1,8 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "GolfBRGameMode.h"
-#include "Players/GolfBallPlayer.h"
+//#include "Players/GolfBallPlayer.h"
+#include "Players/GolfBallCharacter.h"
 #include "UObject/ConstructorHelpers.h"
 #include "GolfBRHud.h"
 #include "Players/GolfBallController.h"
@@ -16,10 +17,10 @@
 AGolfBRGameMode::AGolfBRGameMode()
 {
 	// set default pawn class to our Blueprinted character
-	static ConstructorHelpers::FClassFinder<APawn> PlayerPawnBPClass(TEXT("/Game/GolfBR/Players/BP_GolfBallPlayer"));
-	if (PlayerPawnBPClass.Class != NULL)
+	static ConstructorHelpers::FClassFinder<ACharacter> PlayerCharacterBPClass(TEXT("/Game/GolfBR/Players/BP_GolfBallPlayer"));
+	if (PlayerCharacterBPClass.Class != NULL)
 	{
-		DefaultPawnClass = PlayerPawnBPClass.Class;
+		DefaultPawnClass = PlayerCharacterBPClass.Class;
 		HUDClass = AGolfBRHud::StaticClass();
 		PlayerControllerClass = AGolfBallController::StaticClass();
 		PlayerStateClass = AGolfBRPlayerState::StaticClass();

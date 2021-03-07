@@ -17,9 +17,9 @@ void UGolfBRWidget::NativeConstruct() {
 	EventTextBlock = (UTextBlock*)GetWidgetFromName(TEXT("TextBlock_Event"));
 	PingTextBlock = (UTextBlock*)GetWidgetFromName(TEXT("TextBlock_Ping"));
 
-	GetWorld()->GetTimerManager().SetTimer(SetTeammateCountHandle, this, &UGolfBRWidget::SetTeammateCount, 1.0f, true, 1.0f);
-	GetWorld()->GetTimerManager().SetTimer(SetLatestEventHandle, this, &UGolfBRWidget::SetLatestEvent, 1.0f, true, 1.0f);
-	GetWorld()->GetTimerManager().SetTimer(SetAveragePlayerLatencyHandle, this, &UGolfBRWidget::SetAveragePlayerLatency, 1.0f, true, 1.0f);
+	//GetWorld()->GetTimerManager().SetTimer(SetTeammateCountHandle, this, &UGolfBRWidget::SetTeammateCount, 1.0f, true, 1.0f);
+	//GetWorld()->GetTimerManager().SetTimer(SetLatestEventHandle, this, &UGolfBRWidget::SetLatestEvent, 1.0f, true, 1.0f);
+	//GetWorld()->GetTimerManager().SetTimer(SetAveragePlayerLatencyHandle, this, &UGolfBRWidget::SetAveragePlayerLatency, 1.0f, true, 1.0f);
 }
 
 void UGolfBRWidget::NativeDestruct() {

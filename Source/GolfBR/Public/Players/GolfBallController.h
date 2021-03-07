@@ -5,12 +5,16 @@
 #include "CoreMinimal.h"
 #include "GameFramework/PlayerController.h"
 #include "Components/StaticMeshComponent.h"
+#include "Players/GolfBallCharacter.h"
+#include "Kismet/GameplayStatics.h"
 #include "GolfBallController.generated.h"
 
 /**
  * 
  */
+
 UCLASS()
+
 class GOLFBR_API AGolfBallController : public APlayerController
 {
 	GENERATED_BODY()
@@ -18,17 +22,21 @@ class GOLFBR_API AGolfBallController : public APlayerController
 public:
 	AGolfBallController();
 
-//	UFUNCTION()
-	void Jump();
-
 protected:
 	// APawn interface
 	virtual void SetupInputComponent() override;
 	// End of APawn interface
 
 	virtual void BeginPlay() override;
+	
+	UGameplayStatics* myStatics;
 
-	//UPROPERTY()
-	//UStaticMeshComponent* GolfBall;
+	UPROPERTY()
+	AGolfBallCharacter* OwningPlayer;
+	
+	UFUNCTION()
+	void Jump();
 
+private:
 };
+

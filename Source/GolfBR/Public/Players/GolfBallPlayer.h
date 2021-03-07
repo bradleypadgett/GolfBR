@@ -9,13 +9,22 @@
 #include "Camera/CameraComponent.h"
 #include "GolfBallPlayer.generated.h"
 
+class UGolfBallCameraComponent;
+class UGolfBallMovementComponent;
+class UGolfBallReplicationComponent;
+
 UCLASS()
 class GOLFBR_API AGolfBallPlayer : public APawn
 {
 	GENERATED_BODY()
 
-	UPROPERTY(VisibleAnywhere)
+protected:
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	UStaticMeshComponent* GolfBall;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	USceneComponent* SceneComponent;
 
 	/** Camera boom positioning the camera behind the character */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
@@ -25,40 +34,56 @@ class GOLFBR_API AGolfBallPlayer : public APawn
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	class UCameraComponent* FollowCamera;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
+	UGolfBallCameraComponent* CameraComponent;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Arrow, meta = (AllowPrivateAccess = "true"))
+	class USceneComponent* ArrowCenter;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Arrow, meta = (AllowPrivateAccess = "true"))
+	class UArrowComponent* Arrow;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
+	UGolfBallMovementComponent* MovementComponent;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
+	UGolfBallReplicationComponent* ReplicationComponent;
+
+	UPROPERTY()
+	APlayerCameraManager* CameraManager;
+
 
 public:
 	// Sets default values for this pawn's properties
 	AGolfBallPlayer();
 
-	/** Base turn rate, in deg/sec. Other scaling may affect final turn rate. */
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera)
-		float BaseTurnRate;
-
-	/** Base look up/down rate, in deg/sec. Other scaling may affect final rate. */
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera)
-		float BaseLookUpRate;
-
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-	/**
-	* Called via input to turn at a given rate.
-	* @param Rate	This is a normalized rate, i.e. 1.0 means 100% of desired turn rate
-	*/
+	// input functions
+
 	void TurnAtRate(float Rate);
-
-	/**
-	 * Called via input to turn look up/down at a given rate.
-	 * @param Rate	This is a normalized rate, i.e. 1.0 means 100% of desired turn rate
-	 */
+	void Turn(float Rate);
 	void LookUpAtRate(float Rate);
+	void LookUp(float Rate);
 
-public:	
+	void ChargeShotSetup();
+	void ShootBall();
+
+public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+	// Getters
+	UCameraComponent* GetCamera() { return FollowCamera; }
+	USpringArmComponent* GetCameraBoom() { return CameraBoom; }
+	USceneComponent* GetArrowCenter() { return ArrowCenter; }
+	UArrowComponent* GetArrow() { return Arrow; }
+	UStaticMeshComponent* GetGolfBall() { return GolfBall; }
+	UGolfBallMovementComponent* GetMoveComponent() { return MovementComponent; }
+	UGolfBallReplicationComponent* GetReplicationComponent() { return ReplicationComponent; }
 };
