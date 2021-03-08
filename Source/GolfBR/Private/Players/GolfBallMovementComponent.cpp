@@ -15,7 +15,7 @@ UGolfBallMovementComponent::UGolfBallMovementComponent()
 	// Set this component to be initialized when the game starts, and to be ticked every frame.  You can turn these features
 	// off to improve performance if you don't need them.
 	PrimaryComponentTick.bCanEverTick = true;
-	SetIsReplicated(true);
+	SetIsReplicatedByDefault(true);
 }
 
 
@@ -97,7 +97,7 @@ void UGolfBallMovementComponent::ChargeShot() {
 	GolfBallSpeedVector.Z = 0;
 	float GolfBallSpeed = UKismetMathLibrary::VSize(GolfBallSpeedVector);
 
-	if (Charge < 100 && GolfBallSpeed < 10) {
+	if (Charge < 100 && GolfBallSpeed < 1) {
 		Charge += 1;
 	}
 }
@@ -191,7 +191,7 @@ void UGolfBallMovementComponent::DampenMovement() {
 	FVector LinearVelocity = GolfBall->GetPhysicsLinearVelocity();
 	FVector AngularVelocity = GolfBall->GetPhysicsAngularVelocityInDegrees();
 
-	UE_LOG(LogTemp, Error, TEXT("%f"), Speed);
+	//UE_LOG(LogTemp, Error, TEXT("%f"), Speed);
 	if (UKismetMathLibrary::InRange_FloatFloat(Speed, 10.f, DampenStartSpeed, true, true)) {
 		FVector Direction = GolfBall->GetPhysicsLinearVelocity();
 		Direction.Normalize(KINDA_SMALL_NUMBER);
@@ -199,17 +199,18 @@ void UGolfBallMovementComponent::DampenMovement() {
 		//UE_LOG(LogTemp, Warning, TEXT("%s is ACTUALLY dampening"), *Owner->GetName());
 
 
-		//GolfBall->AddForce(FVector(Direction.X * -(DampenStrength), Direction.Y * -(DampenStrength), 0), NAME_None, true);
-		GolfBall->AddForce(FVector(Direction.X * -(DampenStrength), Direction.Y * -(DampenStrength), Direction.Z * -(DampenStrength)), NAME_None, true);
+		GolfBall->AddForce(FVector(Direction.X * -(DampenStrength), Direction.Y * -(DampenStrength), 0), NAME_None, true);
 
-		//GolfBall->SetPhysicsLinearVelocity(FVector(LinearVelocity.X-(LinearVelocity.X/100), LinearVelocity.Y-(LinearVelocity.Y/100), LinearVelocity.Z));
-		//GolfBall->SetPhysicsAngularVelocityInDegrees(FVector(AngularVelocity.X*.99, AngularVelocity.Y*.99, AngularVelocity.Z*.99));
-		//GolfBall->AddImpulse(FVector(Direction.X * -(DampenStrength), Direction.Y * -(DampenStrength), 0), NAME_None, true);
+		}
+	else if (!IsOnGround() && Speed > 10.f) {
+		FVector Direction = GolfBall->GetPhysicsLinearVelocity();
+		Direction.Normalize(KINDA_SMALL_NUMBER);
+
+		GolfBall->AddForce(FVector(Direction.X*-(DampenStrength+100), Direction.Y*-(DampenStrength+100), 0), NAME_None, true);
 	}
-	else if (Speed < 50 /*&& IsOnGround()*/) {
-		GolfBall->SetPhysicsLinearVelocity(FVector(LinearVelocity.X*.9, LinearVelocity.Y*.9, LinearVelocity.Z*.5), false);
-		//GolfBall->SetPhysicsLinearVelocity(FVector(0, 0, 0), false);
-		GolfBall->SetPhysicsAngularVelocityInDegrees(FVector(AngularVelocity.X*.9, AngularVelocity.Y*.9, AngularVelocity.Z*.9), false);
+	else if (Speed <= 10.f && IsOnGround()) {
+		GolfBall->SetPhysicsLinearVelocity(FVector(LinearVelocity.X*.9, LinearVelocity.Y*.9, LinearVelocity.Z), false);
+		GolfBall->SetPhysicsAngularVelocityInDegrees(FVector(AngularVelocity.X*.9, AngularVelocity.Y*.9, AngularVelocity.Z), false);
 	}
 
 }

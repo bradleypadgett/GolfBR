@@ -73,10 +73,9 @@ void AGolfBallPlayer::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	FString role;
-	UEnum::GetValueAsString(GetLocalRole(), role);
-	DrawDebugString(GetWorld(), FVector(0, 0, 10), role, this, FColor::White, DeltaTime);
-	//UE_LOG(LogTemp, Error, TEXT("Role is: %s"), *role);
+	//FString role;
+	//UEnum::GetValueAsString(GetLocalRole(), role);
+	//DrawDebugString(GetWorld(), FVector(0, 0, 10), role, this, FColor::White, DeltaTime);
 
 	// below works - just not applicable rn
 	//bool bGamepadAttached = FSlateApplication::Get().IsGamepadAttached();
