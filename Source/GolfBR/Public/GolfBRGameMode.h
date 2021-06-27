@@ -9,7 +9,7 @@
 #include "GolfBRGameMode.generated.h"
 
 USTRUCT()
-struct FStartGameSessionState
+struct FStartGameSessionState2
 {
 	GENERATED_BODY();
 
@@ -20,25 +20,25 @@ struct FStartGameSessionState
 		FString MatchmakingConfigurationArn;
 
 	TMap<FString, Aws::GameLift::Server::Model::Player> PlayerIdToPlayer;
-
-	FStartGameSessionState() {
+	
+	FStartGameSessionState2() {
 		Status = false;
 	}
 };
 
 USTRUCT()
-struct FUpdateGameSessionState
+struct FUpdateGameSessionState2
 {
 
 	GENERATED_BODY();
 
-	FUpdateGameSessionState() {
+	FUpdateGameSessionState2() {
 
 	}
 };
 
 USTRUCT()
-struct FProcessTerminateState
+struct FProcessTerminateState2
 {
 	GENERATED_BODY();
 
@@ -47,21 +47,21 @@ struct FProcessTerminateState
 
 	long TerminationTime;
 
-	FProcessTerminateState() {
+	FProcessTerminateState2() {
 		Status = false;
 		TerminationTime = 0L;
 	}
 };
 
 USTRUCT()
-struct FHealthCheckState
+struct FHealthCheckState2
 {
 	GENERATED_BODY();
 
 	UPROPERTY()
 		bool Status;
 
-	FHealthCheckState() {
+	FHealthCheckState2() {
 		Status = false;
 	}
 };
@@ -73,7 +73,7 @@ class AGolfBRGameMode : public AGameModeBase
 
 public:
 	AGolfBRGameMode();
-
+	
 	void PreLogin(const FString& Options, const FString& Address, const FUniqueNetIdRepl& UniqueId, FString& ErrorMessage) override;
 
 	void Logout(AController* Exiting) override;
@@ -103,16 +103,16 @@ private:
 	FHttpModule* HttpModule;
 
 	UPROPERTY()
-		FStartGameSessionState StartGameSessionState;
+		FStartGameSessionState2 StartGameSessionState;
 
 	UPROPERTY()
-		FUpdateGameSessionState UpdateGameSessionState;
+		FUpdateGameSessionState2 UpdateGameSessionState;
 
 	UPROPERTY()
-		FProcessTerminateState ProcessTerminateState;
+		FProcessTerminateState2 ProcessTerminateState;
 	
 	UPROPERTY()
-		FHealthCheckState HealthCheckState;
+		FHealthCheckState2 HealthCheckState;
 
 	UPROPERTY()
 		FString ApiUrl;
@@ -142,6 +142,7 @@ private:
 		void HandleGameSessionUpdate();
 
 	void OnRecordMatchResultResponseReceived(FHttpRequestPtr Request, FHttpResponsePtr Response, bool bWasSuccessful);
+
 };
 
 

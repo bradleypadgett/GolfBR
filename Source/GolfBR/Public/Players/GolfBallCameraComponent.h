@@ -42,6 +42,10 @@ protected:
 	UPROPERTY()
 	float BaseLookUpRate;
 
+	UFUNCTION(Server, Reliable, WithValidation)
+	void Server_UpdateArrowRotation(float DeltaTime, FQuat TargetRotation);
+	void UpdateArrowRotation(float DeltaTime);
+	
 private:
 
 	UPROPERTY()
@@ -56,9 +60,11 @@ private:
 	USceneComponent* ArrowCenter;
 	UPROPERTY()
 	UGolfBallMovementComponent* MovementComponent;
+	UPROPERTY(Replicated)
+	FQuat ReplicatedArrowTargetRotation;
 
 	void SetTargetArmLength();
-	void UpdateArrowRotation(float DeltaTime);
+
 
 public:
 	// Called every frame

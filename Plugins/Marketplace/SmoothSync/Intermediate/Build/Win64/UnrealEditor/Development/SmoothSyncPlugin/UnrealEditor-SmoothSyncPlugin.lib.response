@@ -1,0 +1,14 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-SmoothSyncPlugin.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"D:\Work\_UE4\Projects-Git\GolfBR\Intermediate\Build\Win64\GolfBREditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.obj"
+"D:\Work\_UE4\Projects-Git\GolfBR\Plugins\Marketplace\SmoothSync\Intermediate\Build\Win64\UnrealEditor\Development\SmoothSyncPlugin\Module.SmoothSyncPlugin.cpp.obj"
+"D:\Work\_UE4\Projects-Git\GolfBR\Plugins\Marketplace\SmoothSync\Intermediate\Build\Win64\UnrealEditor\Development\SmoothSyncPlugin\Module.SmoothSyncPlugin.gen.cpp.obj"
+"D:\Work\_UE4\Projects-Git\GolfBR\Plugins\Marketplace\SmoothSync\Intermediate\Build\Win64\UnrealEditor\Development\SmoothSyncPlugin\Default.rc2.res"
+/OUT:"D:\Work\_UE4\Projects-Git\GolfBR\Plugins\Marketplace\SmoothSync\Intermediate\Build\Win64\UnrealEditor\Development\SmoothSyncPlugin\UnrealEditor-SmoothSyncPlugin.lib"
+/INCLUDE:IMPLEMENT_MODULE_SmoothSyncPlugin

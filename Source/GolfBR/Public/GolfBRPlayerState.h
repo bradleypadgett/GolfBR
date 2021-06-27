@@ -15,6 +15,14 @@ class GOLFBR_API AGolfBRPlayerState : public APlayerState
 	GENERATED_BODY()
 	
 public:
+
+	virtual void PostInitializeComponents() override;
+
+	virtual void CopyProperties(APlayerState* PlayerState);
+
+	UFUNCTION(BlueprintCallable)
+	void SetPlayerNameExposed(FString Name);
+
 	UPROPERTY()
 		FString PlayerSessionId;
 

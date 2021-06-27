@@ -1,6 +1,6 @@
 {
 	"FileVersion": 3,
-	"EngineAssociation": "{CDEF040E-4A7F-C706-A662-E582D70C74B8}",
+	"EngineAssociation": "5.0EA",
 	"Category": "",
 	"Description": "",
 	"Modules": [
@@ -38,12 +38,34 @@
 		},
 		{
 			"Name": "HoudiniEngine",
+			"Enabled": false
+		},
+		{
+			"Name": "VoxelPro",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/b08e5581837e4bbca486b61cdf2751bb"
+		},
+		{
+			"Name": "ChaosVehiclesPlugin",
 			"Enabled": true
 		},
 		{
-			"Name": "Substance",
+			"Name": "ChaosCaching",
+			"Enabled": true
+		},
+		{
+			"Name": "SmoothSyncPlugin",
 			"Enabled": true,
-			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/2f6439c2f9584f49809d9b13b16c2ba4"
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/c8f61b007fb44f4abcb7b0974cebff6b"
+		},
+		{
+			"Name": "Bridge",
+			"Enabled": true,
+			"SupportedTargetPlatforms": [
+				"Win64",
+				"Mac",
+				"Linux"
+			]
 		}
 	]
 }

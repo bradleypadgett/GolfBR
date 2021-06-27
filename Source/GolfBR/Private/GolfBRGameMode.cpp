@@ -16,6 +16,7 @@
 
 AGolfBRGameMode::AGolfBRGameMode()
 {
+
 	// set default pawn class to our Blueprinted character
 	static ConstructorHelpers::FClassFinder<ACharacter> PlayerCharacterBPClass(TEXT("/Game/GolfBR/Players/BP_GolfBallPlayer"));
 	if (PlayerCharacterBPClass.Class != NULL)
@@ -34,7 +35,9 @@ AGolfBRGameMode::AGolfBRGameMode()
 
 	RemainingGameTime = 240;
 	GameSessionActivated = false;
+
 }
+
 
 void AGolfBRGameMode::BeginPlay() {
 	Super::BeginPlay();
@@ -45,7 +48,7 @@ void AGolfBRGameMode::BeginPlay() {
 	if (InitSDKOutcome.IsSuccess()) {
 		auto OnStartGameSession = [](Aws::GameLift::Server::Model::GameSession GameSessionObj, void* Params) 
 		{
-			FStartGameSessionState* State = (FStartGameSessionState*)Params;
+			FStartGameSessionState2* State = (FStartGameSessionState2*)Params;
 
 			State->Status = Aws::GameLift::Server::ActivateGameSession().IsSuccess();
 
@@ -87,12 +90,12 @@ void AGolfBRGameMode::BeginPlay() {
 
 		auto OnUpdateGameSession = [](Aws::GameLift::Server::Model::UpdateGameSession UpdateGameSessionObj, void* Params) 
 		{
-			FUpdateGameSessionState* State = (FUpdateGameSessionState*)Params;
+			FUpdateGameSessionState2* State = (FUpdateGameSessionState2*)Params;
 		};
 
 		auto OnProcessTerminate = [](void* Params) 
 		{
-			FProcessTerminateState* State = (FProcessTerminateState*)Params;
+			FProcessTerminateState2* State = (FProcessTerminateState2*)Params;
 
 			auto GetTerminationTimeOutcome = Aws::GameLift::Server::GetTerminationTime();
 			if (GetTerminationTimeOutcome.IsSuccess()) {
@@ -104,7 +107,7 @@ void AGolfBRGameMode::BeginPlay() {
 
 		auto OnHealthCheck = [](void* Params)
 		{
-			FHealthCheckState* State = (FHealthCheckState*)Params;
+			FHealthCheckState2* State = (FHealthCheckState2*)Params;
 			State->Status = true;
 
 			return State->Status;
@@ -359,7 +362,7 @@ void AGolfBRGameMode::HandleProcessTermination() {
 		GetWorldTimerManager().ClearTimer(CountDownUntilGameOverHandle);
 		GetWorldTimerManager().ClearTimer(HandleProcessTerminationHandle);
 		GetWorldTimerManager().ClearTimer(HandleGameSessionUpdateHandle);
-
+		
 		FString ProcessInterruptionMessage;
 
 		if (ProcessTerminateState.TerminationTime <= 0L) {

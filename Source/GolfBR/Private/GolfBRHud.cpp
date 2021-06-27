@@ -5,7 +5,7 @@
 #include "Blueprint/UserWidget.h"
 
 AGolfBRHud::AGolfBRHud() {
-	static ConstructorHelpers::FClassFinder<UUserWidget> GameObj(TEXT("/Game/GolfBR/UI/UI_Game"));
+	static ConstructorHelpers::FClassFinder<UUserWidget> GameObj(TEXT("/Game/GolfBR/UI/UI_TestGameplay"));
 	GameWidgetClass = GameObj.Class;
 }
 

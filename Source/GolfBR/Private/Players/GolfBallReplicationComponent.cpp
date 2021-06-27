@@ -16,7 +16,7 @@ UGolfBallReplicationComponent::UGolfBallReplicationComponent()
 void UGolfBallReplicationComponent::BeginPlay()
 {
 	Super::BeginPlay();
-	UE_LOG(LogTemp, Error, TEXT("i did it yay"));
+	//UE_LOG(LogTemp, Error, TEXT("i did it yay"));
 	
 }
 

@@ -1,0 +1,14 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.SmoothSyncPlugin.cpp.obj": [
+			"SmoothSync.cpp.obj",
+			"SmoothSyncPlugin.cpp.obj",
+			"State.cpp.obj"
+		],
+		"Module.SmoothSyncPlugin.gen.cpp.obj": [
+			"SmoothSync.gen.cpp.obj",
+			"SmoothSyncPlugin.init.gen.cpp.obj"
+		]
+	}
+}

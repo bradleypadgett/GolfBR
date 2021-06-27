@@ -15,10 +15,13 @@
 #include "Players/GolfBallMovementComponent.h"
 #include "Players/GolfBallReplicationComponent.h"
 #include "DrawDebugHelpers.h"
+#include "Math/Vector2D.h"
 
 // Sets default values
 AGolfBallPlayer::AGolfBallPlayer()
-{
+{ 
+	//helps with servertravel crash?
+	bAlwaysRelevant = true;
 
  	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = false;
@@ -64,7 +67,9 @@ AGolfBallPlayer::AGolfBallPlayer()
 void AGolfBallPlayer::BeginPlay()
 {
 	Super::BeginPlay();
-
+	FVector2D VectorTest = (1.f,1.f);
+	VectorTest.DotProduct(VectorTest, VectorTest);
+	VectorTest.operator*((1.f,1.f));
 }
 
 
@@ -92,6 +97,8 @@ void AGolfBallPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputComp
 	// We have 2 versions of the rotation bindings to handle different kinds of devices differently
 	// "turn" handles devices that provide an absolute delta, such as a mouse.
 	// "turnrate" is for devices that we choose to treat as a rate of change, such as an analog joystick
+	
+	
 	PlayerInputComponent->BindAxis("Turn", CameraComponent, &UGolfBallCameraComponent::Turn);
 	PlayerInputComponent->BindAxis("TurnRate", CameraComponent, &UGolfBallCameraComponent::TurnAtRate);
 	PlayerInputComponent->BindAxis("LookUp", CameraComponent, &UGolfBallCameraComponent::LookUp);
@@ -103,6 +110,6 @@ void AGolfBallPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputComp
 	PlayerInputComponent->BindAction("Charge", IE_Pressed, MovementComponent, &UGolfBallMovementComponent::ChargeShotSetup);
 	PlayerInputComponent->BindAction("Charge", IE_Released, MovementComponent, &UGolfBallMovementComponent::ShootBall);
 	PlayerInputComponent->BindAction("MoveUp", IE_Pressed, MovementComponent, &UGolfBallMovementComponent::Jump);
-
+	
 }
 
