@@ -1,6 +1,6 @@
-D:\Work\_UE4\Projects-Git\GolfBR\Plugins\Marketplace\SmoothSync\Intermediate\Build\Win64\UnrealEditor\Development\SmoothSyncPlugin\Module.SmoothSyncPlugin.gen.cpp
+C:\Users\bradl\Documents\GitHub\GolfBR\Plugins\Marketplace\SmoothSync\Intermediate\Build\Win64\UnrealEditor\Development\SmoothSyncPlugin\Module.SmoothSyncPlugin.gen.cpp
 /I .
-/I D:\Work\_UE4\Projects-Git\GolfBR\Plugins\Marketplace\SmoothSync\Source\SmoothSyncPlugin\Private
+/I C:\Users\bradl\Documents\GitHub\GolfBR\Plugins\Marketplace\SmoothSync\Source\SmoothSyncPlugin\Private
 /I ..\Intermediate\Build\Win64\UnrealEditor\Inc\CoreUObject
 /I Runtime
 /I Runtime\CoreUObject\Public
@@ -232,9 +232,9 @@ D:\Work\_UE4\Projects-Git\GolfBR\Plugins\Marketplace\SmoothSync\Intermediate\Bui
 /I Runtime\ClothingSystemRuntimeInterface\Public
 /I ..\Intermediate\Build\Win64\UnrealEditor\Inc\AnimationDataController
 /I Developer\AnimationDataController\Public
-/I D:\Work\_UE4\Projects-Git\GolfBR\Plugins\Marketplace\SmoothSync\Intermediate\Build\Win64\UnrealEditor\Inc\SmoothSyncPlugin
-/I D:\Work\_UE4\Projects-Git\GolfBR\Plugins\Marketplace\SmoothSync\Source
-/I D:\Work\_UE4\Projects-Git\GolfBR\Plugins\Marketplace\SmoothSync\Source\SmoothSyncPlugin\Public
+/I C:\Users\bradl\Documents\GitHub\GolfBR\Plugins\Marketplace\SmoothSync\Intermediate\Build\Win64\UnrealEditor\Inc\SmoothSyncPlugin
+/I C:\Users\bradl\Documents\GitHub\GolfBR\Plugins\Marketplace\SmoothSync\Source
+/I C:\Users\bradl\Documents\GitHub\GolfBR\Plugins\Marketplace\SmoothSync\Source\SmoothSyncPlugin\Public
 /I ThirdParty\PhysX3\PxShared\include
 /I ThirdParty\PhysX3\PxShared\include\cudamanager
 /I ThirdParty\PhysX3\PxShared\include\filebuf
@@ -246,17 +246,17 @@ D:\Work\_UE4\Projects-Git\GolfBR\Plugins\Marketplace\SmoothSync\Intermediate\Bui
 /I ThirdParty\PhysX3\PhysX_3.4\Include\common
 /I ThirdParty\PhysX3\PhysX_3.4\Include\extensions
 /I ThirdParty\PhysX3\PhysX_3.4\Include\geometry
-/I "D:\Microsoft\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\INCLUDE"
-/I "C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.2\include\um"
+/I "C:\Program Files (x86)\Microsoft Visual Studio\2019\Preview\VC\Tools\MSVC\14.29.30130\INCLUDE"
+/I "C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\ucrt"
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\shared"
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\um"
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\winrt"
-/FI"D:\Work\_UE4\Projects-Git\GolfBR\Intermediate\Build\Win64\GolfBREditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
-/FI"D:\Work\_UE4\Projects-Git\GolfBR\Plugins\Marketplace\SmoothSync\Intermediate\Build\Win64\UnrealEditor\Development\SmoothSyncPlugin\Definitions.SmoothSyncPlugin.h"
-/Yu"D:\Work\_UE4\Projects-Git\GolfBR\Intermediate\Build\Win64\GolfBREditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
-/Fp"D:\Work\_UE4\Projects-Git\GolfBR\Intermediate\Build\Win64\GolfBREditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.pch"
-/Fo"D:\Work\_UE4\Projects-Git\GolfBR\Plugins\Marketplace\SmoothSync\Intermediate\Build\Win64\UnrealEditor\Development\SmoothSyncPlugin\Module.SmoothSyncPlugin.gen.cpp.obj"
+/FI"C:\Users\bradl\Documents\GitHub\GolfBR\Intermediate\Build\Win64\GolfBREditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
+/FI"C:\Users\bradl\Documents\GitHub\GolfBR\Plugins\Marketplace\SmoothSync\Intermediate\Build\Win64\UnrealEditor\Development\SmoothSyncPlugin\Definitions.SmoothSyncPlugin.h"
+/Yu"C:\Users\bradl\Documents\GitHub\GolfBR\Intermediate\Build\Win64\GolfBREditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
+/Fp"C:\Users\bradl\Documents\GitHub\GolfBR\Intermediate\Build\Win64\GolfBREditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.pch"
+/Fo"C:\Users\bradl\Documents\GitHub\GolfBR\Plugins\Marketplace\SmoothSync\Intermediate\Build\Win64\UnrealEditor\Development\SmoothSyncPlugin\Module.SmoothSyncPlugin.gen.cpp.obj"
 /Zc:inline
 /nologo
 /Oi
