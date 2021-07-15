@@ -1,8 +1,0 @@
-{
-	"OutputFiles": [
-		"Module.SmoothSyncPlugin.cppa7.o",
-		"Module.SmoothSyncPlugin.cppa8.o",
-		"Module.SmoothSyncPlugin.gen.cppa7.o",
-		"Module.SmoothSyncPlugin.gen.cppa8.o"
-	]
-}
