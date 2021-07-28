@@ -70,6 +70,10 @@
 		{
 			"Name": "Volumetrics",
 			"Enabled": true
+		},
+		{
+			"Name": "RenderDocPlugin",
+			"Enabled": true
 		}
 	]
 }
