@@ -54,6 +54,10 @@ protected:
 
 
 public:
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Testing, meta = (AllowPrivateAccess = "true"))
+	bool Testing = false;
+
 	// Sets default values for this pawn's properties
 	AGolfBallPlayer();
 

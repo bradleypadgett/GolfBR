@@ -78,7 +78,7 @@ void UGolfBallCameraComponent::SetTargetArmLength() {
 void UGolfBallCameraComponent::UpdateArrowRotation(float DeltaTime) {
 
 	// If it's the client then it'll call the server and replicate
-	if (GetOwnerRole() == ROLE_AutonomousProxy) {
+	if (GetOwnerRole() == ROLE_AutonomousProxy && !Owner->Testing) {
 
 		FRotator Rotation = UKismetMathLibrary::MakeRotFromX(MovementComponent->CalculateShotDirection(false));
 
@@ -87,9 +87,15 @@ void UGolfBallCameraComponent::UpdateArrowRotation(float DeltaTime) {
 		Server_UpdateArrowRotation(DeltaTime, TargetRotation.Quaternion());
 		ArrowCenter->SetWorldRotation(TargetRotation.Quaternion());
 	}
-	else {
+	else if (!Owner->Testing) {
 		//UE_LOG(LogTemp, Warning, TEXT("MyRotation: %s"), *ReplicatedArrowTargetRotation.ToString());
 		ArrowCenter->SetWorldRotation(ReplicatedArrowTargetRotation);
+	}
+
+	if (Owner->Testing) {
+		FRotator Rotation = UKismetMathLibrary::MakeRotFromX(MovementComponent->CalculateShotDirection(false));
+		FRotator TargetRotation = UKismetMathLibrary::RInterpTo(ArrowCenter->GetComponentRotation(), Rotation, DeltaTime, 10);
+		ArrowCenter->SetWorldRotation(TargetRotation.Quaternion());
 	}
 
 	//UE_LOG(LogTemp, Error, TEXT("%s"), *ReplicatedArrowTargetRotation.ToString());

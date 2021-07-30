@@ -200,9 +200,12 @@ FVector UGolfBallMovementComponent::CalculateShotDirection(bool Turn90) {
 }
 
 void UGolfBallMovementComponent::Jump() {
-	if (GetOwnerRole() != ROLE_Authority && IsOnGround()) {
+	if (GetOwnerRole() != ROLE_Authority && IsOnGround() && !Owner->Testing) {
 		GolfBall->AddImpulse(FVector(0, 0, JumpHeight * 25));
 		Server_Jump();
+	}
+	if (Owner->Testing && IsOnGround()) {
+		GolfBall->AddImpulse(FVector(0, 0, JumpHeight * 25));
 	}
 }
 
