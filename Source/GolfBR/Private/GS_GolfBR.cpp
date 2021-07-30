@@ -3,3 +3,8 @@
 
 #include "GS_GolfBR.h"
 
+void AGS_GolfBR::GetPlayers(TArray<APlayerState*>& Players)
+{
+	for (auto PlayerState : PlayerArray)
+		Players.Add(PlayerState);
+}

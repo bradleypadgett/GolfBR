@@ -13,5 +13,6 @@ UCLASS()
 class GOLFBR_API AGS_GolfBR : public AGameState
 {
 	GENERATED_BODY()
-	
+	UFUNCTION(BlueprintCallable, Category = Lobby)
+	void GetPlayers(TArray<APlayerState*>& Players);
 };

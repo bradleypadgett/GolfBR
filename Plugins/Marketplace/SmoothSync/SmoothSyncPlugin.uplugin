@@ -10,7 +10,6 @@
 	"DocsURL": "http://noblewhale.com/smoothsyncunreal",
 	"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/c8f61b007fb44f4abcb7b0974cebff6b",
 	"SupportURL": "https://forums.unrealengine.com/unreal-engine/marketplace/1492482-smooth-sync-sync-your-transforms-smoothly-across-the-network",
-	"EngineVersion": "4.26.0",
 	"CanContainContent": true,
 	"Installed": true,
 	"Modules": [
